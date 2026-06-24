@@ -1,0 +1,79 @@
+---
+const email = 'info@agro.org.kz';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Политика конфиденциальности HammerPro</title>
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <main>
+      <a href="/" class="back">← На главную</a>
+      <h1>Политика конфиденциальности</h1>
+      <p>
+        Эта страница объясняет, как HammerPro использует данные, которые пользователь отправляет через форму заявки,
+        WhatsApp, телефон или email.
+      </p>
+
+      <h2>Какие данные могут обрабатываться</h2>
+      <p>Имя, номер телефона, email, текст заявки, выбранная модель, количество товара и город поставки.</p>
+
+      <h2>Для чего используются данные</h2>
+      <p>Только для связи по заявке, подготовки коммерческого предложения, уточнения наличия, комплектации и условий поставки.</p>
+
+      <h2>Передача данных</h2>
+      <p>Данные не публикуются на сайте. Сообщения, отправленные через WhatsApp или email, обрабатываются соответствующими сервисами связи.</p>
+
+      <h2>Контакты</h2>
+      <p>По вопросам обработки данных можно написать на <a href={`mailto:${email}`}>{email}</a>.</p>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f1ec;
+    color: #151515;
+  }
+
+  main {
+    width: min(calc(100% - 36px), 860px);
+    margin: 0 auto;
+    padding: 48px 0 72px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 28px;
+    color: #9d0c14;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 0 0 18px;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: .96;
+    letter-spacing: -.06em;
+  }
+
+  h2 {
+    margin: 32px 0 10px;
+    font-size: 26px;
+    letter-spacing: -.03em;
+  }
+
+  p {
+    color: #5e584f;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  a { color: #9d0c14; }
+</style>

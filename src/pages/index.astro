@@ -1,36 +1,53 @@
 ---
+const pageUrl = 'https://hammerpro.vercel.app/';
+const email = 'info@agro.org.kz';
+
 const phones = [
-  { label: '+7 (776) 425-09-40', href: 'tel:+77764250940', wa: 'https://wa.me/77764250940?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20HammerPro.' },
-  { label: '+7 (776) 705-87-40', href: 'tel:+77767058740', wa: 'https://wa.me/77767058740?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20HammerPro.' },
+  {
+    label: '+7 (776) 425-09-40',
+    short: '09-40',
+    href: 'tel:+77764250940',
+    wa: 'https://wa.me/77764250940?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%20%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20HammerPro.'
+  },
+  {
+    label: '+7 (776) 705-87-40',
+    short: '87-40',
+    href: 'tel:+77767058740',
+    wa: 'https://wa.me/77767058740?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%20%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20HammerPro.'
+  },
 ];
 
 const sets = [
   {
     title: 'HammerPro 2-в-1',
-    subtitle: 'Дрель и УШМ в комплекте',
+    subtitle: 'Дрель и УШМ в одном комплекте',
     image: '/products/set-2.png',
     price: '31 000 ₸',
-    specs: ['Дрель до 1550 об/мин', 'УШМ до 9750 об/мин', 'Диск 100/125 мм', '2 АКБ и зарядка'],
+    status: 'В наличии',
+    specs: ['Дрель до 1550 об/мин', 'УШМ до 9750 об/мин', 'Диск 100/125 мм', '2 АКБ 3.0Ah + зарядка'],
   },
   {
     title: 'HammerPro 3-в-1',
     subtitle: 'Дрель, УШМ и перфоратор',
     image: '/products/set-3-drill.png',
     price: '49 300 ₸',
-    specs: ['Перфоратор до 1400 об/мин', 'Удар до 4500 ipm', 'Бур до 22 мм', 'Для монтажа и ремонта'],
+    status: 'В наличии',
+    specs: ['Перфоратор до 1400 об/мин', 'Удар до 4500 ipm', 'Бур до 22 мм', '2 АКБ 3.0Ah + зарядка'],
   },
   {
     title: 'HammerPro 3-в-1 с гайковертом',
     subtitle: 'Гайковерт, УШМ и перфоратор',
     image: '/products/set-3-wrench.png',
     price: '53 300 ₸',
-    specs: ['Гайковерт до 480 Н·м', 'УШМ 100/125 мм', 'Перфоратор 22 мм', 'Кейс и оснастка'],
+    status: 'В наличии',
+    specs: ['Гайковерт до 480 Н·м', 'УШМ 100/125 мм', 'Перфоратор 22 мм', '2 АКБ 3.0Ah + зарядка'],
   },
   {
     title: 'HammerPro 4-в-1',
     subtitle: 'Комплект для монтажной бригады',
     image: '/products/set-4.png',
     price: '60 100 ₸',
+    status: 'Часто запрашивают для бригад',
     specs: ['Дрель', 'Гайковерт', 'УШМ', 'Перфоратор'],
     featured: true,
   },
@@ -39,6 +56,7 @@ const sets = [
     subtitle: 'Комплект с дисковой пилой',
     image: '/products/set-5.png',
     price: '76 100 ₸',
+    status: 'В наличии',
     specs: ['Пила до 7000 об/мин', 'Диск до 150 мм', 'Рез до 56 мм', 'Для выездных работ'],
   },
   {
@@ -46,6 +64,7 @@ const sets = [
     subtitle: 'Расширенный комплект 21V',
     image: '/products/set-7.png',
     price: '108 400 ₸',
+    status: 'Комплект под расширенную закупку',
     specs: ['7 инструментов', '4 АКБ и 2 зарядки', 'Цепная пила 8″', 'Воздуходувка в комплекте'],
     featured: true,
   },
@@ -56,62 +75,162 @@ const tools = [
     title: 'УШМ 21V',
     image: '/products/angle-grinder.png',
     price: '25 600 ₸',
-    specs: ['100/125 мм', '0-9750 об/мин', '2 АКБ + зарядка'],
+    status: 'В наличии',
+    specs: ['100/125 мм', '0-9750 об/мин', '2 АКБ 3.0Ah + зарядка'],
   },
   {
     title: 'Перфоратор 21V',
     image: '/products/rotary-hammer.png',
     price: '31 000 ₸',
-    specs: ['Бур до 22 мм', '0-4500 ipm', '21V Li-ion'],
+    status: 'В наличии',
+    specs: ['Бур до 22 мм', '0-4500 ipm', '2 АКБ 3.0Ah + зарядка'],
   },
   {
     title: 'Дисковая пила 21V',
     image: '/products/circular-saw.png',
     price: '29 600 ₸',
+    status: 'В наличии',
     specs: ['Диск до 150 мм', 'Глубина реза до 56 мм', '0-7000 об/мин'],
   },
   {
     title: 'Цепная пила 8″',
     image: '/products/chainsaw.png',
     price: '24 400 ₸',
+    status: 'В наличии',
     specs: ['До 5800 об/мин', 'До 1800 Вт', '21V Li-ion'],
   },
   {
     title: 'Сабельная пила 21V',
     image: '/products/reciprocating-saw.png',
     price: '25 800 ₸',
+    status: 'В наличии',
     specs: ['Ход 10 мм', '0-1620 spm', '2 пилки в комплекте'],
   },
   {
     title: 'Секатор 21V',
     image: '/products/pruner.png',
     price: '19 500 ₸',
-    specs: ['25/28/32/40 мм', 'Бесщеточный мотор', 'Для сада и фермы'],
+    status: 'В наличии',
+    specs: ['25/28/32/40 мм', 'Бесщеточный мотор', 'АКБ 1.5/2.0Ah'],
   },
   {
     title: 'Труборез 21V',
     image: '/products/pipe-cutter.png',
     price: '20 800 ₸',
-    specs: ['Рез до 30 мм', 'Бесщеточный мотор', '2 АКБ + зарядка'],
+    status: 'В наличии',
+    specs: ['Рез до 30 мм', 'Бесщеточный мотор', 'АКБ 1.5/2.0Ah'],
   },
 ];
 
 const priceRows = [
-  ['Комплект 2-в-1: дрель + УШМ 100 мм', '2 АКБ, зарядка, кейс', '31 000 ₸'],
-  ['Комплект 2-в-1: дрель + УШМ 125 мм', '2 АКБ, зарядка, кейс', '31 500 ₸'],
-  ['Комплект 3-в-1: дрель + УШМ + перфоратор', 'УШМ 100 мм', '49 300 ₸'],
-  ['Комплект 3-в-1: гайковерт + УШМ + перфоратор', 'УШМ 100 мм', '53 300 ₸'],
-  ['Комплект 4-в-1', 'Дрель, гайковерт, УШМ, перфоратор', '60 100 ₸'],
-  ['Комплект 5-в-1', 'Плюс дисковая пила', '76 100 ₸'],
-  ['Комплект 7-в-1', '7 инструментов, 4 АКБ, 2 зарядки', '108 400 ₸'],
-  ['УШМ 21V', '100 мм, 2 АКБ', '25 600 ₸'],
-  ['Перфоратор 21V', '22 мм, 2 АКБ', '31 000 ₸'],
-  ['Дисковая пила 21V', '150 мм, 2 АКБ', '29 600 ₸'],
-  ['Цепная пила 8″', '21V, 2 АКБ', '24 400 ₸'],
-  ['Сабельная пила 21V', '2 АКБ, 2 пилки', '25 800 ₸'],
-  ['Секатор 21V', 'минимальная комплектация', '19 500 ₸'],
-  ['Труборез 21V', 'рез до 30 мм', '20 800 ₸'],
+  ['Комплект 2-в-1: дрель + УШМ 100 мм', '2 АКБ 3.0Ah, зарядка, кейс', '31 000 ₸', 'Проверяем перед КП'],
+  ['Комплект 2-в-1: дрель + УШМ 125 мм', '2 АКБ 3.0Ah, зарядка, кейс', '31 500 ₸', 'Проверяем перед КП'],
+  ['Комплект 3-в-1: дрель + УШМ + перфоратор', 'УШМ 100 мм, 2 АКБ 3.0Ah', '49 300 ₸', 'Проверяем перед КП'],
+  ['Комплект 3-в-1: гайковерт + УШМ + перфоратор', 'УШМ 100 мм, 2 АКБ 3.0Ah', '53 300 ₸', 'Проверяем перед КП'],
+  ['Комплект 4-в-1', 'Дрель, гайковерт, УШМ, перфоратор', '60 100 ₸', 'Популярно для бригад'],
+  ['Комплект 5-в-1', 'Плюс дисковая пила', '76 100 ₸', 'Проверяем перед КП'],
+  ['Комплект 7-в-1', '7 инструментов, 4 АКБ, 2 зарядки', '108 400 ₸', 'Под расширенную закупку'],
+  ['УШМ 21V', '100 мм, 2 АКБ 3.0Ah', '25 600 ₸', 'Проверяем перед КП'],
+  ['Перфоратор 21V', '22 мм, 2 АКБ 3.0Ah', '31 000 ₸', 'Проверяем перед КП'],
+  ['Дисковая пила 21V', '150 мм, 2 АКБ 3.0Ah', '29 600 ₸', 'Проверяем перед КП'],
+  ['Цепная пила 8″', '21V, 2 АКБ', '24 400 ₸', 'Проверяем перед КП'],
+  ['Сабельная пила 21V', '2 АКБ, 2 пилки', '25 800 ₸', 'Проверяем перед КП'],
+  ['Секатор 21V', 'минимальная комплектация', '19 500 ₸', 'Проверяем перед КП'],
+  ['Труборез 21V', 'рез до 30 мм', '20 800 ₸', 'Проверяем перед КП'],
 ];
+
+const compareRows = [
+  ['2-в-1', 'Мастер, ремонт, базовый набор', 'Дрель + УШМ', 'от 31 000 ₸', 'Минимальный вход в линейку'],
+  ['4-в-1', 'Монтажная бригада', 'Дрель + гайковерт + УШМ + перфоратор', 'от 60 100 ₸', 'Закрывает основные задачи на объекте'],
+  ['7-в-1', 'Расширенная закупка', '7 инструментов + 4 АКБ + 2 зарядки', 'от 108 400 ₸', 'Когда нужен один большой комплект'],
+];
+
+const trustItems = [
+  { title: 'Компания с 2010 года', text: 'Продажи ведет команда Агромонтаж Групп. Адрес и контакты открыты.' },
+  { title: 'КП под вашу задачу', text: 'Подберем комплект под вид работ, количество людей и бюджет.' },
+  { title: 'Гарантия и сервис', text: 'Условия гарантии и сервиса фиксируем в КП по конкретной модели.' },
+  { title: 'Астана и регионы', text: 'Самовывоз из Астаны или доставка по согласованию с менеджером.' },
+];
+
+const audienceCards = [
+  {
+    title: 'Бригаде на объект',
+    text: 'Нужны дрель, УШМ, гайковерт и перфоратор без долгого подбора. Обычно смотрят 3-в-1, 4-в-1 и 5-в-1.',
+  },
+  {
+    title: 'Закупщику и снабженцу',
+    text: 'Нужны цена за 1 шт, наличие, комплектация и КП. По партии считаем отдельно.',
+  },
+  {
+    title: 'Мастеру или сервиснику',
+    text: 'Нужна одна понятная позиция: УШМ, перфоратор, пила или дрель. Подскажем, что подойдет под задачу.',
+  },
+  {
+    title: 'Хозяйству или участку',
+    text: 'Пилы, секаторы и труборезы для ремонта, сада и текущего обслуживания без привязки к розетке.',
+  },
+];
+
+const conditions = [
+  ['Наличие', 'Проверяем по конкретной модели в день обращения. Если позиции нет, сразу называем срок поставки.'],
+  ['Доставка', 'По Астане и регионам Казахстана условия считаются отдельно. Можно обсудить самовывоз.'],
+  ['Гарантия', 'Срок и условия гарантии указываем в КП или счете по выбранной модели и комплектации.'],
+  ['Оплата', 'Для организаций готовим КП и счет. Способ оплаты уточняет менеджер при оформлении.'],
+  ['Партия', 'Для закупки от нескольких единиц считаем цену партии и комплектацию отдельно.'],
+  ['АКБ', 'В карточках указана базовая комплектация. Варианты 3.0Ah, 4.0Ah и другие АКБ уточняются перед счетом.'],
+];
+
+const faqItems = [
+  ['Можно ли купить один инструмент, а не набор?', 'Да. УШМ, перфоратор, пилы, секатор и труборез можно запросить отдельно.'],
+  ['Что входит в цену?', 'В прайсе указана базовая комплектация. Для части товаров это 2 АКБ и зарядка. Точный состав подтверждаем перед КП.'],
+  ['Есть ли товар в наличии?', 'Наличие проверяем по SKU в день обращения. Если нужной модели нет, менеджер назовет ближайший срок поставки.'],
+  ['Можно ли получить КП для закупки?', 'Да. Оставьте заявку через форму или WhatsApp: укажите модель, количество и город поставки.'],
+  ['Что с гарантией?', 'Гарантийные условия фиксируются в КП или счете по конкретной модели. По сервису можно обратиться через отдел продаж.'],
+  ['Можно ли оплатить онлайн?', 'Сейчас заказ оформляется через менеджера. Если нужна онлайн-оплата или счет для организации, напишите об этом в заявке.'],
+];
+
+const quoteMail = `mailto:${email}?subject=${encodeURIComponent('Заявка на КП HammerPro')}&body=${encodeURIComponent('Здравствуйте! Нужен КП на HammerPro.\nМодель/набор:\nКоличество:\nГород поставки:\nТелефон:')}`;
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'HammerPro 21V',
+  itemListElement: [...sets, ...tools].map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: item.title,
+      description: item.subtitle || item.specs.join(', '),
+      image: `${pageUrl}${item.image.replace(/^\//, '')}`,
+      brand: { '@type': 'Brand', name: 'HammerPro' },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'KZT',
+        price: item.price.replace(/\D/g, ''),
+        availability: 'https://schema.org/LimitedAvailability',
+        url: pageUrl,
+      },
+    },
+  })),
+};
+
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'HammerPro',
+  url: pageUrl,
+  image: `${pageUrl}products/set-7.png`,
+  email,
+  telephone: phones.map((phone) => phone.label),
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'KZ',
+    addressLocality: 'Астана',
+    streetAddress: 'Шоссе Коргалжын 19т, офис 407 Б',
+  },
+  openingHours: 'Mo-Fr 09:00-18:00',
+};
 ---
 
 <!doctype html>
@@ -119,11 +238,19 @@ const priceRows = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HammerPro - аккумуляторный инструмент 21V</title>
+    <title>HammerPro - аккумуляторный инструмент 21V в Астане</title>
     <meta
       name="description"
-      content="HammerPro: аккумуляторные наборы и инструмент 21V для монтажных, ремонтных и хозяйственных работ. Цены за 1 шт в тенге."
+      content="HammerPro: аккумуляторные наборы и инструмент 21V для монтажа, ремонта и хозяйства. Цены за 1 шт, подбор комплектации, КП и доставка по Казахстану."
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content="HammerPro - аккумуляторный инструмент 21V" />
+    <meta property="og:description" content="Наборы 2-в-1, 4-в-1, 7-в-1 и отдельные позиции. Цены за 1 шт в тенге, КП по запросу." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={`${pageUrl}products/set-7.png`} />
+    <script type="application/ld+json" set:html={JSON.stringify([businessSchema, productSchema])}></script>
   </head>
   <body>
     <header class="site-header">
@@ -139,6 +266,7 @@ const priceRows = [
         <a href="#sets">Наборы</a>
         <a href="#tools">Инструмент</a>
         <a href="#prices">Цены</a>
+        <a href="#quote">КП</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
@@ -149,21 +277,21 @@ const priceRows = [
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">21V Li-ion / наборы / отдельный инструмент</p>
-          <h1>Аккумуляторный инструмент HammerPro 21V для работы на объекте</h1>
+          <h1>Аккумуляторные наборы HammerPro для объекта, ремонта и хозяйства</h1>
           <p class="lead">
-            В наличии готовые наборы и отдельные позиции: дрели, УШМ, перфораторы, пилы, секаторы и труборезы.
-            Подберем комплект под задачу, количество и бюджет.
+            Подбираем комплект под конкретную работу: монтаж, резка металла, бетон, дерево, сад или закупка для бригады.
+            Сразу считаем цену за 1 шт, проверяем наличие и готовим КП.
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href={phones[0].wa}>Написать в WhatsApp</a>
-            <a class="btn secondary" href="#prices">Смотреть цены</a>
+            <a class="btn primary" href="#quote">Получить КП</a>
+            <a class="btn secondary" href={phones[0].wa}>Написать в WhatsApp</a>
           </div>
 
           <div class="hero-notes" aria-label="Ключевые преимущества">
-            <div><b>21V</b><span>одна аккумуляторная линейка</span></div>
-            <div><b>2-7</b><span>инструментов в наборах</span></div>
-            <div><b>₸/шт</b><span>цены указаны за одну штуку</span></div>
+            <div><b>21V</b><span>единая аккумуляторная линейка</span></div>
+            <div><b>2-7</b><span>инструментов в готовых наборах</span></div>
+            <div><b>₸/шт</b><span>цены указаны за одну позицию</span></div>
           </div>
         </div>
 
@@ -177,23 +305,56 @@ const priceRows = [
         </div>
       </section>
 
+      <section class="trust-bar section-tight" aria-label="Доверие и условия">
+        {trustItems.map((item) => (
+          <article>
+            <b>{item.title}</b>
+            <span>{item.text}</span>
+          </article>
+        ))}
+      </section>
+
       <section class="section intro-strip">
         <div>
           <p class="eyebrow">Подбор комплектации</p>
-          <h2>Подбираем набор под задачу и бюджет</h2>
+          <h2>Не надо угадывать модель. Достаточно описать задачу</h2>
+          <p>
+            Мы разделили линейку по понятным сценариям: для бригады, закупки, сервиса и хозяйства.
+            Так проще выбрать комплект и не переплачивать за лишние позиции.
+          </p>
         </div>
-        <div class="strip-grid">
+        <div class="audience-grid">
+          {audienceCards.map((item) => (
+            <article>
+              <b>{item.title}</b>
+              <span>{item.text}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section benefit-section">
+        <div class="section-head centered">
+          <p class="eyebrow">Почему комплект выгоднее</p>
+          <h2>Одна 21V линейка — меньше лишних зарядок и проще закупка</h2>
+          <p>
+            Если на объекте несколько задач, комплект удобнее покупать и обслуживать: инструменты идут в одной системе,
+            а менеджер сразу проверяет аккумуляторы, зарядки, диск 100/125 мм и доступность доп. АКБ.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
           <article>
-            <b>Для монтажников</b>
-            <span>Дрель, гайковерт, УШМ и перфоратор для выездных работ.</span>
+            <b>Меньше подбора вручную</b>
+            <span>Можно взять готовый 3-в-1, 4-в-1 или 7-в-1, а не собирать каждую позицию отдельно.</span>
           </article>
           <article>
-            <b>Для хозяйства</b>
-            <span>Пилы, секаторы и труборезы для ремонта, участка и текущего обслуживания.</span>
+            <b>Понятный бюджет</b>
+            <span>На странице указаны цены за 1 шт. Для партии считаем отдельное предложение.</span>
           </article>
           <article>
-            <b>Для закупки</b>
-            <span>Цены указаны за 1 шт в тенге. Наличие уточняем перед счетом.</span>
+            <b>Проще для бригады</b>
+            <span>Один комплект закрывает сверление, резку, крепеж и часть сервисных задач на выезде.</span>
           </article>
         </div>
       </section>
@@ -201,13 +362,13 @@ const priceRows = [
       <section class="section" id="sets">
         <div class="section-head">
           <p class="eyebrow">Готовые наборы</p>
-          <h2>Готовые комплекты 21V</h2>
-          <p>Варианты от 2 до 7 инструментов. Подойдут для бригады, сервиса и закупки на объект.</p>
+          <h2>Комплекты HammerPro 21V</h2>
+          <p>Варианты от 2 до 7 инструментов. Подходят для ремонта, выездных работ и закупки на объект.</p>
         </div>
 
         <div class="product-grid">
           {sets.map((item) => (
-            <article class:list={['product-card', { featured: item.featured }]}>
+            <article class:list={['product-card', { featured: item.featured }]}> 
               {item.featured && <span class="badge">Часто выбирают</span>}
               <div class="image-wrap">
                 <img src={item.image} alt={item.title} loading="lazy" />
@@ -216,22 +377,56 @@ const priceRows = [
                 <p class="product-kicker">Набор 21V</p>
                 <h3>{item.title}</h3>
                 <p>{item.subtitle}</p>
+                <div class="stock-pill">{item.status}</div>
                 <div class="price"><span>от</span><strong>{item.price}</strong><small>за 1 шт</small></div>
                 <ul>
                   {item.specs.map((spec) => <li>{spec}</li>)}
                 </ul>
-                <a class="mini-link" href={phones[0].wa}>Уточнить наличие</a>
+                <a class="mini-link" href="#quote">Запросить КП</a>
               </div>
             </article>
           ))}
         </div>
       </section>
 
+      <section class="section compare-section">
+        <div class="section-head">
+          <p class="eyebrow">Сравнение</p>
+          <h2>Какой комплект выбрать</h2>
+          <p>Быстрое сравнение основных наборов, чтобы не листать все карточки вручную.</p>
+        </div>
+
+        <div class="price-table-wrap">
+          <table class="price-table compare-table">
+            <thead>
+              <tr>
+                <th>Набор</th>
+                <th>Кому подходит</th>
+                <th>Что внутри</th>
+                <th>Цена</th>
+                <th>Комментарий</th>
+              </tr>
+            </thead>
+            <tbody>
+              {compareRows.map((row) => (
+                <tr>
+                  <td><b>{row[0]}</b></td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                  <td><b>{row[3]}</b></td>
+                  <td>{row[4]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="section dark" id="tools">
         <div class="section-head light">
           <p class="eyebrow">Отдельные позиции</p>
-          <h2>Отдельный инструмент 21V</h2>
-          <p>Для доукомплектации, склада или покупки одной позиции.</p>
+          <h2>Когда нужен один конкретный инструмент</h2>
+          <p>Можно взять не набором, а одной позицией: для склада, ремонта или доукомплектации бригады.</p>
         </div>
 
         <div class="tool-grid">
@@ -240,6 +435,7 @@ const priceRows = [
               <div class="tool-image"><img src={item.image} alt={item.title} loading="lazy" /></div>
               <div class="tool-info">
                 <h3>{item.title}</h3>
+                <div class="stock-pill dark-pill">{item.status}</div>
                 <div class="price compact"><span>от</span><strong>{item.price}</strong><small>за 1 шт</small></div>
                 <ul>
                   {item.specs.map((spec) => <li>{spec}</li>)}
@@ -254,7 +450,10 @@ const priceRows = [
         <div class="section-head">
           <p class="eyebrow">Прайс</p>
           <h2>Цены за 1 шт в тенге</h2>
-          <p>Ориентировочные цены по базовым комплектациям. Перед счетом проверяем наличие, аккумуляторы и диск 100/125 мм.</p>
+          <p>
+            Ниже — ориентиры по базовым комплектациям. Перед счетом менеджер подтверждает наличие, аккумуляторы,
+            диск 100/125 мм, срок поставки и условия оплаты.
+          </p>
         </div>
 
         <div class="price-table-wrap">
@@ -264,6 +463,7 @@ const priceRows = [
                 <th>Позиция</th>
                 <th>Комплектация</th>
                 <th>Цена за 1 шт</th>
+                <th>Статус</th>
               </tr>
             </thead>
             <tbody>
@@ -272,6 +472,7 @@ const priceRows = [
                   <td>{row[0]}</td>
                   <td>{row[1]}</td>
                   <td><b>{row[2]}</b></td>
+                  <td>{row[3]}</td>
                 </tr>
               ))}
             </tbody>
@@ -279,38 +480,114 @@ const priceRows = [
         </div>
       </section>
 
+      <section class="section conditions-section">
+        <div class="section-head">
+          <p class="eyebrow">Условия</p>
+          <h2>Что уточняем перед счетом</h2>
+          <p>Эти пункты лучше проговорить до оплаты, особенно если покупаете комплект для бригады или партию.</p>
+        </div>
+
+        <div class="conditions-grid">
+          {conditions.map((item) => (
+            <article>
+              <b>{item[0]}</b>
+              <span>{item[1]}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section quote-section" id="quote">
+        <div class="quote-copy">
+          <p class="eyebrow">Получить КП</p>
+          <h2>Оставьте данные — сформируем запрос для менеджера</h2>
+          <p>
+            Форма не требует регистрации. После отправки откроется WhatsApp с готовым сообщением: можно проверить текст и отправить менеджеру.
+          </p>
+        </div>
+
+        <form class="quote-form" data-quote-form>
+          <label>
+            Имя
+            <input type="text" name="name" placeholder="Например, Айдос" autocomplete="name" />
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 ..." autocomplete="tel" required />
+          </label>
+          <label>
+            Что нужно
+            <select name="product">
+              <option value="Подобрать комплект">Подобрать комплект</option>
+              <option value="Комплект 2-в-1">Комплект 2-в-1</option>
+              <option value="Комплект 4-в-1">Комплект 4-в-1</option>
+              <option value="Комплект 7-в-1">Комплект 7-в-1</option>
+              <option value="Отдельный инструмент">Отдельный инструмент</option>
+              <option value="Партия / закупка">Партия / закупка</option>
+            </select>
+          </label>
+          <label>
+            Комментарий
+            <textarea name="comment" rows="4" placeholder="Например: нужен комплект для 2 монтажников, город Астана, 3 штуки"></textarea>
+          </label>
+          <button class="btn primary full" type="submit">Отправить заявку в WhatsApp</button>
+          <a class="btn secondary full" href={quoteMail}>Отправить запрос на email</a>
+          <p class="privacy-note">
+            Нажимая кнопку, вы соглашаетесь на обработку данных для связи по заявке.
+            <a href="/privacy">Политика конфиденциальности</a>
+          </p>
+        </form>
+      </section>
+
+      <section class="section faq-section">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Коротко по частым вопросам</h2>
+        </div>
+
+        <div class="faq-list">
+          {faqItems.map((item) => (
+            <details>
+              <summary>{item[0]}</summary>
+              <p>{item[1]}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section class="section order">
         <div>
-          <p class="eyebrow">Как заказать</p>
-          <h2>Напишите задачу — подберем модель и комплектацию</h2>
+          <p class="eyebrow">Как идет заказ</p>
+          <h2>От задачи до КП — без лишних шагов</h2>
           <p>
             Можно написать простыми словами: монтаж, резка металла, бетон, дерево, сад, труба или комплект для бригады.
-            Менеджер предложит подходящий вариант и цену.
+            Менеджер уточнит детали и предложит подходящий вариант.
           </p>
         </div>
 
         <div class="steps">
-          <div><b>1</b><span>Вы пишете задачу и нужное количество</span></div>
-          <div><b>2</b><span>Проверяем наличие и варианты комплектации</span></div>
-          <div><b>3</b><span>Отправляем цену за 1 шт и условия поставки</span></div>
+          <div><b>1</b><span>Вы пишете задачу, город и нужное количество</span></div>
+          <div><b>2</b><span>Проверяем наличие, АКБ, комплектацию и срок поставки</span></div>
+          <div><b>3</b><span>Отправляем цену за 1 шт, условия и КП при необходимости</span></div>
         </div>
       </section>
 
       <section class="contacts" id="contacts">
         <div class="contact-copy">
-          <p class="eyebrow">Связаться</p>
+          <p class="eyebrow">Контакты</p>
           <h2>HammerPro</h2>
           <p>Казахстан, г. Астана, Шоссе Коргалжын 19т, офис 407 Б</p>
-          <p>Понедельник-пятница: 9:00 - 17:00</p>
+          <p>Понедельник-пятница: 9:00 - 18:00</p>
+          <p class="company-note">Линейка HammerPro продается через команду Агромонтаж Групп.</p>
         </div>
 
         <div class="contact-card">
           <h3>Отдел продаж</h3>
           {phones.map((phone) => <a class="contact-link" href={phone.href}>{phone.label}</a>)}
-          <a class="contact-link" href="mailto:info@agro.org.kz">info@agro.org.kz</a>
+          <a class="contact-link" href={`mailto:${email}`}>{email}</a>
           <div class="contact-actions">
-            <a class="btn primary full" href={phones[0].wa}>WhatsApp 09-40</a>
-            <a class="btn secondary full" href={phones[1].wa}>WhatsApp 87-40</a>
+            <a class="btn primary full" href={phones[0].wa}>WhatsApp {phones[0].short}</a>
+            <a class="btn secondary full" href={phones[1].wa}>WhatsApp {phones[1].short}</a>
           </div>
         </div>
       </section>
@@ -318,8 +595,28 @@ const priceRows = [
 
     <footer>
       <span>© HammerPro</span>
+      <a href="/privacy">Политика конфиденциальности</a>
       <a href="#top">Наверх</a>
     </footer>
+
+    <script is:inline>
+      const quoteForm = document.querySelector('[data-quote-form]');
+
+      quoteForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(quoteForm);
+        const message = [
+          'Здравствуйте! Нужен КП HammerPro.',
+          `Имя: ${formData.get('name') || '-'}`,
+          `Телефон: ${formData.get('phone') || '-'}`,
+          `Запрос: ${formData.get('product') || '-'}`,
+          `Комментарий: ${formData.get('comment') || '-'}`,
+        ].join('\n');
+
+        window.location.href = `https://wa.me/77764250940?text=${encodeURIComponent(message)}`;
+      });
+    </script>
   </body>
 </html>
 
@@ -328,17 +625,15 @@ const priceRows = [
     --bg: #f4f1ec;
     --paper: #fffaf2;
     --text: #151515;
-    --muted: #706b63;
+    --muted: #6f6a62;
     --dark: #111111;
-    --dark-soft: #1b1b1b;
     --red: #d71920;
     --red-dark: #9d0c14;
     --line: rgba(21, 21, 21, 0.12);
     --line-light: rgba(255, 255, 255, 0.12);
     --radius: 22px;
     --container: 1164px;
-    --gutter: clamp(18px, 4vw, 58px);
-    --shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+    --shadow: 0 20px 58px rgba(0, 0, 0, 0.14);
   }
 
   * { box-sizing: border-box; }
@@ -355,8 +650,8 @@ const priceRows = [
   }
 
   a { color: inherit; text-decoration: none; }
-
   img { max-width: 100%; display: block; }
+  h1, h2, h3, p { margin-top: 0; }
 
   .site-header {
     position: sticky;
@@ -367,8 +662,8 @@ const priceRows = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
-    background: rgba(255, 250, 242, 0.84);
+    gap: 22px;
+    background: rgba(255, 250, 242, 0.9);
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(18px);
   }
@@ -377,7 +672,7 @@ const priceRows = [
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    min-width: 230px;
+    min-width: 220px;
   }
 
   .logo-mark {
@@ -394,11 +689,7 @@ const priceRows = [
   }
 
   .logo b,
-  .logo small {
-    display: block;
-    line-height: 1.15;
-  }
-
+  .logo small { display: block; line-height: 1.15; }
   .logo b { font-size: 20px; letter-spacing: -0.04em; }
   .logo small { color: var(--muted); font-size: 12px; margin-top: 3px; }
 
@@ -413,7 +704,7 @@ const priceRows = [
   }
 
   .nav a {
-    padding: 10px 15px;
+    padding: 10px 13px;
     color: #3c3934;
     font-size: 14px;
     border-radius: 999px;
@@ -427,11 +718,20 @@ const priceRows = [
     font-weight: 800;
     background: var(--text);
     border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .hero,
+  .section,
+  .section-tight,
+  .contacts,
+  footer {
+    width: min(calc(100% - 36px), var(--container));
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero {
-    width: min(calc(100% - 36px), var(--container));
-    margin: 0 auto;
     padding: clamp(42px, 7vw, 88px) 0 40px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
@@ -444,25 +744,23 @@ const priceRows = [
     color: var(--red);
     font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-
-  h1, h2, h3, p { margin-top: 0; }
 
   h1 {
     max-width: 760px;
     margin-bottom: 22px;
-    font-size: clamp(44px, 7.4vw, 88px);
-    line-height: 0.92;
-    letter-spacing: -0.075em;
+    font-size: clamp(42px, 6.6vw, 76px);
+    line-height: 0.96;
+    letter-spacing: -0.065em;
   }
 
   h2 {
     margin-bottom: 14px;
-    font-size: clamp(34px, 5vw, 58px);
-    line-height: 0.98;
-    letter-spacing: -0.06em;
+    font-size: clamp(32px, 4.6vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.055em;
   }
 
   h3 {
@@ -475,7 +773,7 @@ const priceRows = [
     max-width: 680px;
     margin-bottom: 30px;
     color: #504b44;
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(18px, 2vw, 21px);
     line-height: 1.55;
   }
 
@@ -495,6 +793,7 @@ const priceRows = [
     border: 1px solid transparent;
     border-radius: 999px;
     font-weight: 900;
+    cursor: pointer;
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
   }
 
@@ -523,21 +822,38 @@ const priceRows = [
     margin-top: 34px;
   }
 
-  .hero-notes div {
+  .hero-notes div,
+  .trust-bar article,
+  .audience-grid article,
+  .benefit-grid article,
+  .conditions-grid article {
     padding: 18px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.72);
     border: 1px solid var(--line);
     border-radius: 20px;
   }
 
-  .hero-notes b {
+  .hero-notes b,
+  .trust-bar b,
+  .audience-grid b,
+  .benefit-grid b,
+  .conditions-grid b {
     display: block;
-    margin-bottom: 5px;
-    font-size: 24px;
-    letter-spacing: -0.04em;
+    margin-bottom: 7px;
+    font-size: 18px;
+    letter-spacing: -0.03em;
   }
 
-  .hero-notes span { color: var(--muted); font-size: 13px; line-height: 1.35; }
+  .hero-notes b { font-size: 24px; }
+  .hero-notes span,
+  .trust-bar span,
+  .audience-grid span,
+  .benefit-grid span,
+  .conditions-grid span {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
 
   .hero-visual {
     position: relative;
@@ -560,23 +876,23 @@ const priceRows = [
     position: absolute;
     inset: auto -15% -30% 10%;
     height: 48%;
-    background: radial-gradient(ellipse, rgba(0, 0, 0, .28), transparent 68%);
-    transform: none;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, .24), transparent 68%);
+    transform: rotate(-8deg);
     z-index: -1;
   }
 
   .hero-visual-bg {
     position: absolute;
     inset: 26px;
-    border-radius: 32px;
+    border-radius: 22px;
     background: linear-gradient(135deg, rgba(17,17,17,.06), rgba(215,25,32,.08));
     z-index: -2;
   }
 
   .hero-visual img {
     width: min(100%, 650px);
-    filter: drop-shadow(0 30px 35px rgba(0,0,0,.25));
-    transform: none;
+    filter: drop-shadow(0 30px 35px rgba(0,0,0,.22));
+    transform: rotate(-2deg);
   }
 
   .hero-label {
@@ -591,7 +907,7 @@ const priceRows = [
     padding: 18px 20px;
     color: white;
     background: rgba(17, 17, 17, 0.88);
-    border-radius: 22px;
+    border-radius: 18px;
     backdrop-filter: blur(12px);
   }
 
@@ -599,61 +915,72 @@ const priceRows = [
   .hero-label strong { font-size: 20px; }
 
   .section {
-    width: min(calc(100% - 36px), var(--container));
-    margin: 0 auto;
-    padding: clamp(54px, 7vw, 88px) 0;
+    padding: clamp(52px, 7vw, 88px) 0;
+  }
+
+  .section-tight {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 0 22px;
   }
 
   .section-head {
-    max-width: 720px;
+    max-width: 760px;
     margin-bottom: 34px;
   }
 
-  .section-head p {
+  .section-head.centered {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .section-head p,
+  .intro-strip > div > p,
+  .order p,
+  .quote-copy p {
     color: var(--muted);
     font-size: 18px;
     line-height: 1.55;
   }
 
-  .intro-strip {
+  .intro-strip,
+  .quote-section,
+  .order,
+  .contacts {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, .82fr) minmax(320px, 1fr);
+    gap: 30px;
+    align-items: start;
   }
 
-  .strip-grid {
+  .audience-grid,
+  .benefit-grid,
+  .conditions-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
-  .strip-grid article {
-    padding: 20px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-  }
+  .benefit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .conditions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-  .strip-grid b,
-  .strip-grid span {
-    display: block;
-  }
-
-  .strip-grid b { margin-bottom: 8px; }
-  .strip-grid span { color: var(--muted); font-size: 14px; line-height: 1.45; }
-
-  .product-grid {
+  .product-grid,
+  .tool-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 18px;
   }
 
-  .product-card {
+  .product-card,
+  .tool-card {
     position: relative;
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.86);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
@@ -661,7 +988,7 @@ const priceRows = [
   }
 
   .product-card.featured {
-    border-color: rgba(215, 25, 32, 0.28);
+    border-color: rgba(215, 25, 32, 0.3);
     box-shadow: 0 24px 60px rgba(215, 25, 32, 0.12);
   }
 
@@ -678,39 +1005,30 @@ const priceRows = [
     font-weight: 900;
   }
 
-  .image-wrap {
-    height: 285px;
+  .image-wrap,
+  .tool-image {
+    min-height: 250px;
     display: grid;
     place-items: center;
-    padding: 32px 24px 18px;
+    padding: 28px 22px 18px;
     background:
       radial-gradient(circle at center, rgba(215, 25, 32, 0.14), transparent 58%),
       linear-gradient(180deg, #fff7ec, #f2ede4);
   }
 
-  .image-wrap img {
-    max-height: 245px;
+  .image-wrap img,
+  .tool-image img {
+    max-height: 230px;
     object-fit: contain;
-    filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.22));
+    filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.2));
   }
 
-  .product-body {
+  .product-body,
+  .tool-info {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 24px;
-  }
-
-  .product-body h3 {
-    min-height: 58px;
-  }
-
-  .product-body > p:not(.product-kicker) {
-    min-height: 44px;
-  }
-
-  .product-body ul {
-    min-height: 128px;
+    padding: 22px;
   }
 
   .product-kicker {
@@ -727,15 +1045,29 @@ const priceRows = [
     line-height: 1.45;
   }
 
+  .stock-pill {
+    width: fit-content;
+    margin: 4px 0 12px;
+    padding: 8px 11px;
+    color: var(--red-dark);
+    background: rgba(215, 25, 32, .08);
+    border: 1px solid rgba(215, 25, 32, .18);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .dark-pill { background: white; border-color: var(--line); }
+
   .price {
     display: flex;
     align-items: baseline;
     gap: 8px;
-    margin: 4px 0 16px;
+    margin: 2px 0 16px;
     padding: 14px 16px;
     background: #151515;
     color: white;
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .price span,
@@ -784,14 +1116,15 @@ const priceRows = [
   .dark {
     width: 100%;
     max-width: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: max(18px, calc((100vw - var(--container)) / 2));
+    padding-right: max(18px, calc((100vw - var(--container)) / 2));
     background: var(--dark);
     color: white;
   }
 
-  .dark > * {
-    width: min(calc(100% - 36px), var(--container));
+  .dark .section-head,
+  .dark .tool-grid {
+    width: 100%;
     max-width: var(--container);
     margin-left: auto;
     margin-right: auto;
@@ -800,89 +1133,117 @@ const priceRows = [
   .section-head.light p,
   .section-head.light .eyebrow { color: rgba(255,255,255,.72); }
 
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-    overflow: visible;
-    padding-bottom: 0;
-  }
-
-  .tool-card {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #f6efe5;
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-
-  .tool-image {
-    height: 250px;
-    display: grid;
-    place-items: center;
-    padding: 22px;
-    background: radial-gradient(circle at center, rgba(215,25,32,.18), transparent 60%), #fff7ec;
-  }
-
-  .tool-image img {
-    max-height: 215px;
-    object-fit: contain;
-    filter: drop-shadow(0 22px 24px rgba(0,0,0,.22));
-  }
-
-  .tool-info { padding: 22px; flex: 1; }
+  .tool-card { background: #f6efe5; color: var(--text); }
   .tool-info li { color: #4b453d; }
-
-  .price-section {
-    width: min(calc(100% - 36px), var(--container));
-  }
 
   .price-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--line);
-    border-radius: 26px;
-    background: rgba(255, 255, 255, 0.82);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.86);
     box-shadow: 0 18px 40px rgba(0,0,0,.06);
   }
 
   .price-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 760px;
+    min-width: 820px;
   }
 
   .price-table th,
   .price-table td {
-    padding: 18px 20px;
+    padding: 17px 18px;
     text-align: left;
     border-bottom: 1px solid var(--line);
+    vertical-align: top;
   }
 
   .price-table th {
     color: #5d5850;
     font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .09em;
     background: #fff6e8;
   }
 
   .price-table tr:last-child td { border-bottom: 0; }
-  .price-table td:last-child { white-space: nowrap; }
+  .price-table td:nth-child(3) { white-space: nowrap; }
   .price-table b { color: var(--red-dark); font-size: 18px; }
 
-  .order {
-    display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(320px, .7fr);
-    gap: 30px;
-    align-items: start;
+  .quote-section {
+    padding: clamp(40px, 6vw, 64px);
+    background:
+      radial-gradient(circle at top right, rgba(215,25,32,.24), transparent 24rem),
+      linear-gradient(145deg, #191919, #0c0c0c);
+    color: white;
+    border-radius: 32px;
+    box-shadow: var(--shadow);
   }
 
-  .order p {
+  .quote-copy p { color: rgba(255,255,255,.72); }
+
+  .quote-form {
+    display: grid;
+    gap: 12px;
+    padding: 22px;
+    color: var(--text);
+    background: #fffaf2;
+    border-radius: 24px;
+  }
+
+  label {
+    display: grid;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 900;
+    color: #4b453d;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    font: inherit;
+    color: var(--text);
+    background: white;
+  }
+
+  textarea { resize: vertical; }
+
+  .privacy-note {
+    margin: 0;
     color: var(--muted);
-    font-size: 18px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .privacy-note a { color: var(--red-dark); font-weight: 900; }
+
+  .faq-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  details {
+    padding: 18px 20px;
+    background: rgba(255,255,255,.82);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  details p {
+    margin: 12px 0 0;
+    color: var(--muted);
     line-height: 1.55;
   }
 
@@ -898,7 +1259,7 @@ const priceRows = [
     padding: 20px;
     background: white;
     border: 1px solid var(--line);
-    border-radius: 22px;
+    border-radius: 18px;
   }
 
   .steps b {
@@ -915,27 +1276,24 @@ const priceRows = [
   .steps span { color: #514b43; line-height: 1.45; }
 
   .contacts {
-    width: min(calc(100% - 36px), var(--container));
-    margin: 0 auto 48px;
+    margin-bottom: 48px;
     padding: clamp(34px, 6vw, 58px);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, .52fr);
-    gap: 30px;
     color: white;
     background:
       radial-gradient(circle at top right, rgba(215,25,32,.36), transparent 32rem),
       linear-gradient(145deg, #191919, #0c0c0c);
-    border-radius: 40px;
+    border-radius: 32px;
     box-shadow: var(--shadow);
   }
 
   .contact-copy p { color: rgba(255,255,255,.72); font-size: 18px; line-height: 1.55; }
+  .company-note { margin-top: 20px; }
 
   .contact-card {
     padding: 24px;
     color: var(--text);
     background: #fffaf2;
-    border-radius: 28px;
+    border-radius: 24px;
   }
 
   .contact-link {
@@ -951,8 +1309,6 @@ const priceRows = [
   .contact-link:hover { border-color: rgba(215,25,32,.34); }
 
   footer {
-    width: min(calc(100% - 36px), var(--container));
-    margin: 0 auto;
     padding: 26px 0 42px;
     display: flex;
     justify-content: space-between;
@@ -960,44 +1316,21 @@ const priceRows = [
     color: var(--muted);
   }
 
-
-  .product-card,
-  .tool-card,
-  .strip-grid article,
-  .steps div,
-  .contact-card,
-  .price-table-wrap {
-    border-radius: var(--radius);
-  }
-
-  .tool-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tool-info h3 {
-    min-height: 58px;
-  }
-
-  .tool-info ul {
-    min-height: 96px;
-  }
-
-  .price-table th:nth-child(3),
-  .price-table td:nth-child(3) {
-    text-align: right;
-  }
+  footer a { font-weight: 800; }
 
   @media (max-width: 1060px) {
     .nav { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-visual { min-height: 440px; }
+    .hero,
     .intro-strip,
+    .quote-section,
     .order,
     .contacts { grid-template-columns: 1fr; }
+    .hero-visual { min-height: 440px; }
+    .section-tight,
+    .benefit-grid,
+    .conditions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .product-grid,
     .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .strip-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
@@ -1007,12 +1340,18 @@ const priceRows = [
     .header-phone { display: none; }
     .hero { padding-top: 34px; }
     .hero-notes,
+    .section-tight,
+    .audience-grid,
+    .benefit-grid,
+    .conditions-grid,
     .product-grid,
     .tool-grid { grid-template-columns: 1fr; }
-    .hero-visual { min-height: 360px; border-radius: 30px; padding: 20px; }
+    .hero-visual { min-height: 360px; border-radius: 24px; padding: 20px; }
     .hero-label { position: static; flex-direction: column; align-items: flex-start; margin-top: 14px; }
-    .image-wrap { height: 235px; }
-    .contacts { margin-left: 18px; margin-right: 18px; border-radius: 30px; }
+    .image-wrap,
+    .tool-image { min-height: 220px; }
+    .quote-section,
+    .contacts { width: min(calc(100% - 24px), var(--container)); border-radius: 24px; }
     footer { flex-direction: column; }
   }
 </style>
